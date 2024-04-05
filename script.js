@@ -40,7 +40,11 @@ async function getCard() {
 }
 
 function createCard(cards) {
-    cards.map((el) => {
+
+
+    cards.map((el, index) => {
+
+        if (index < 5) {
 
             const basket = getBasketLocalStorage();
             checkingActiveButtons(basket);
@@ -73,10 +77,9 @@ function createCard(cards) {
             }
 
             cardsBlock.insertAdjacentHTML('beforeend', renderCart());
-
-        })
-    };
-
+        }
+    })
+};
 
 document.addEventListener('DOMContentLoaded', getCard());
 cardsBlock.addEventListener('click', handleCardClick);
